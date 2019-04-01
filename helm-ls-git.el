@@ -441,12 +441,12 @@ and launch git-grep from there.
     (delete-file helm-ls-git-log-file))
   (helm-aif (helm-ls-git-root-dir)
       (with-helm-default-directory it
-          (with-output-to-string
-              (with-current-buffer standard-output
-                (apply #'process-file
-                       "git"
-                       nil (list t helm-ls-git-log-file) nil
-                       (list "status" "--porcelain")))))))
+        (with-output-to-string
+          (with-current-buffer standard-output
+            (apply #'process-file
+                   "git"
+                   nil (list t helm-ls-git-log-file) nil
+                   (list "status" "--untracked-files=no" "--porcelain")))))))
 
 (defun helm-ls-git-status-transformer (candidates _source)
   (cl-loop with root = (helm-ls-git-root-dir)
