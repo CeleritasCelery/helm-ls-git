@@ -375,7 +375,8 @@ and launch git-grep from there.
    (match-part :initform 'helm-ls-git-match-part)
    (filtered-candidate-transformer
     :initform '(helm-ls-git-transformer
-                helm-ls-git-sort-fn))
+                helm-ls-git-sort-fn
+                helm-adaptive-sort))
    (action-transformer :initform 'helm-transform-file-load-el)
    (action :initform (helm-ls-git-actions-list helm-type-file-actions))))
 
